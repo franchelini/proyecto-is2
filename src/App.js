@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Activities from './pages/activities';
+import Time from './pages/time';
+import User from './pages/user';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ESTO ES UNA PRUEBA
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Activities />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/time" element={<Time />} />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
+
