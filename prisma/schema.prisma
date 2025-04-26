@@ -132,7 +132,3 @@ model Usuario_Ubicacion {
   ubicacion Ubicacion @relation(fields: [id_ubi], references: [id_ubi])
 }
 
-generator client {
-  provider = "prisma-client-js"
-  output   = "./node_modules/@prisma/client"
-}
