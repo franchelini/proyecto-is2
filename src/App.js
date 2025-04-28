@@ -5,6 +5,7 @@ import Activities from './pages/activities';
 import Time from './pages/time';
 import User from './pages/user';
 
+
 const App = () => {
   return (
     <Router>
