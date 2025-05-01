@@ -53,9 +53,10 @@ const HorizontalWeekCalendar = () => {
       padding: 4,
       overflowX: 'auto',
       '&::-webkit-scrollbar': { display: 'none' },
+      mt:"-15rem"
       
     }}>
-      <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
+      <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center', color: "#2c5a8a", fontSize: '2rem', fontWeight:"bold" }}>
         CALENDARIO SEMANAL
       </Typography>
 

@@ -12,8 +12,10 @@ const DayWeatherDetails = ({ day, month, year, weather, activity, recommendation
         maxWidth: '400px', // Ancho máximo
         margin: '0 auto', // Centrar horizontalmente
         textAlign: 'center', // Centrar el texto
+        mt:"-15rem"
       }}
     >
+    <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center', color: "#2c5a8a", fontSize: '2rem', fontWeight:"bold" }}> DETALLES DEL DÍA</Typography>
       <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
         {day}, {month} {year}
       </Typography>

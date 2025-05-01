@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
+import { Box, useTheme, useMediaQuery } from '@mui/material'; // Elimina Typography
 import HorizontalWeekCalendar from '../components/timeComponents/WeekCalendar';
 import DayWeatherDetails from '../components/timeComponents/DayWeatherDetails';
 
@@ -30,17 +30,11 @@ const TimePage = () => {
     >
       {/* Calendario semanal */}
       <Box sx={{ flex: 1 }}>
-        <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
-          CALENDARIO SEMANAL
-        </Typography>
         <HorizontalWeekCalendar />
       </Box>
 
       {/* Detalles del clima de un día */}
       <Box sx={{ flex: 1 }}>
-        <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
-          DETALLES DEL DÍA
-        </Typography>
         <DayWeatherDetails
           day={selectedDay.day}
           month={selectedDay.month}
