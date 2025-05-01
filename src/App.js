@@ -1,22 +1,16 @@
-// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Activities from './pages/activities';
-import Time from './pages/time';
-import User from './pages/user';
+import { BrowserRouter as Router } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import CustomAppBar from './components/CustomAppBar';
 
 
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/activities" element={<Activities />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/time" element={<Time />} />
-      </Routes>
+      <CustomAppBar />
+      <AppRoutes />
     </Router>
   );
-}
+};
 
 export default App;
-
