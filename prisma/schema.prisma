@@ -132,3 +132,7 @@ model Usuario_Ubicacion {
   ubicacion Ubicacion @relation(fields: [id_ubi], references: [id_ubi])
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
