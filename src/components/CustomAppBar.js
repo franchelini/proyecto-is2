@@ -4,30 +4,49 @@ import { Link } from 'react-router-dom';
 
 const CustomAppBar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: '#4982ef' }}>
+    <Box sx={{ flexGrow: 1, height:"100hv" }}>
+      <AppBar position="static" sx={{ backgroundColor: '#4982ef', height: '9rem' }}>
         <Toolbar
           sx={{
             display: 'flex',
-            flexDirection: 'column', // Cambia la dirección a columna para centrar todo
-            alignItems: 'center', // Centra horizontalmente
-            gap: '1rem', // Espaciado entre el título y los botones
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '1rem',
           }}
         >
-          <Typography
-            variant="h6"
-            sx={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-            }}
-          >
-            App MyTime
-          </Typography>
+         
           <Box
             sx={{
               display: 'flex',
-              gap: '2rem', // Espaciado entre los botones
+              alignItems: 'center', 
+              gap: '0.5rem', 
+              alignContent:"space-between"
+            }}
+          >
+            {/* Imagen */}
+            <img
+              src="clima3.png" 
+              alt="Logo"
+              style={{ width: '60px', height: '60px', mt: '2rem' }} 
+            />
+            {/* Texto */}
+            <Typography
+              variant="h6"
+              sx={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                mt: '1rem',
+              }}
+            >
+              App MyTime
+            </Typography>
+          </Box>
+          {/* Botones */}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: '10rem',
             }}
           >
             <Button
