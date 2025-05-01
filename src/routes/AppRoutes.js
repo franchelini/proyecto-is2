@@ -1,9 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Activities from '../pages/Activities';
-import Time from '../pages/Time';
-import User from '../pages/User';
-import LoginPage from '../pages/LoginPage';
+import Activities from '../pages/activities';
+import Time from '../pages/time';
+import User from '../pages/user';
+import LoginPage from '../pages/loginPage';
 
 const AppRoutes = () => {
   return (
