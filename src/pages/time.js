@@ -55,7 +55,7 @@ const HorizontalWeekCalendar = () => {
       '&::-webkit-scrollbar': { display: 'none' }
     }}>
       <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center' }}>
-        Calendario Semanal
+        CALENDARIO SEMANAL
       </Typography>
 
       {/* Contenedor horizontal */}
