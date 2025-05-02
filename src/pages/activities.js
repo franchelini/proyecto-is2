@@ -49,29 +49,7 @@ const PaginaActividades = () => {
 
   return (
 
-    <Box sx={{ 
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'linear-gradient(160deg, #e3f2fd 0%, #bbdefb 100%)',
-      
-      overflow: 'auto',
-      '&::before': { // Efecto de nubes sutiles
-        content: '""',
-        position: 'absolute',
-        width: '100%',
-        height: '100%',
-        backgroundImage: 'url("https://cdn-icons-png.freepik.com/512/9812/9812010.png")', // SVG de nubes
-        opacity: 0.1,
-        animation: 'moveClouds 60s linear infinite'
-      },
-      '@keyframes moveClouds': {
-        '0%': { backgroundPosition: '0 0' },
-        '100%': { backgroundPosition: '1000px 0' }
-      }
-    }}>
+  <Box>
   {/* Título principal */}
   <Typography variant="h4" gutterBottom sx={{ color: '#223c6a' /* udec_blue */ }}>
     Tus Actividades
