@@ -11,7 +11,7 @@ import {
   useMediaQuery
 } from '@mui/material';
 
-const HorizontalWeekCalendar = () => {
+const HorizontalWeekCalendar = ({ onDaySelect }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -41,6 +41,17 @@ const HorizontalWeekCalendar = () => {
     { day: 'SÁB', activity: 'Bicicleta', weather: { condition: 'Nublado', temp: '21°C' } },
     { day: 'DOM', activity: 'Descanso', weather: { condition: 'Soleado', temp: '25°C' } }
   ];
+
+  const handleDetailsClick = (dayData) => {
+    onDaySelect({
+      day: dayData.day,
+      month: 'Mayo', // Puedes hacer esto dinámico
+      year: 2025,
+      weather: dayData.weather,
+      activity: dayData.activity,
+      recommendation: getWeatherRecommendation(dayData.weather.condition)
+    });
+  };
 
   // Dimensiones fijas para todas las cards
   const cardDimensions = {
@@ -191,30 +202,31 @@ const HorizontalWeekCalendar = () => {
                     fontSize: '0.75rem',
                     fontWeight: 500,
                     width: '100%',
+                    backgroundColor:
+                      day.weather.condition === 'Soleado'
+                        ? '#ffeb3b'
+                        : day.weather.condition === 'Lluvia'
+                        ? '#2196f3'
+                        : '#9e9e9e',
+                    color: '#fff',
                   }}
-                  color={
-                    day.weather.condition === 'Soleado'
-                      ? 'warning'
-                      : day.weather.condition === 'Lluvia'
-                      ? 'info'
-                      : 'default'
-                  }
                 />
                 <Typography variant="body1" sx={{ mb: 2, fontWeight: 600 }}>
                   {day.weather.temp}
                 </Typography>
 
                 <Button
-                  variant="outlined"
-                  size="small"
-                  sx={{
+                variant="outlined"
+                size="small"
+                sx={{
                     width: '100%',
                     fontSize: '0.75rem',
                     fontWeight: 500,
-                  }}
+                }}
+                onClick={() => handleDetailsClick(day)}  // Se agrega este manejador
                 >
                   Detalles
-                </Button>
+              </Button>
               </Box>
             </CardContent>
           </Card>

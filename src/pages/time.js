@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, useTheme, useMediaQuery } from '@mui/material';
 import HorizontalWeekCalendar from '../components/timeComponents/WeekCalendar';
 import DayWeatherDetails from '../components/timeComponents/DayWeatherDetails';
@@ -6,16 +6,7 @@ import DayWeatherDetails from '../components/timeComponents/DayWeatherDetails';
 const TimePage = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
-
-  // Datos ficticios para el día seleccionado
-  const selectedDay = {
-    day: 'Lunes',
-    month: 'Mayo',
-    year: 2025,
-    weather: { condition: 'Soleado', temp: '22°C' },
-    activity: 'Yoga',
-    recommendation: 'Usa protector solar',
-  };
+  const [selectedDay, setSelectedDay] = useState(null);
 
   return (
     <Box
@@ -28,22 +19,24 @@ const TimePage = () => {
         alignItems: 'stretch', // Asegura que ambos componentes tengan la misma altura
       }}
     >
-      {/* Calendario semanal */}
+      {/* Calendario semanal (siempre visible) */}
       <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
-        <HorizontalWeekCalendar />
+        <HorizontalWeekCalendar onDaySelect={setSelectedDay} />
       </Box>
 
-      {/* Detalles del clima de un día */}
-      <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
-        <DayWeatherDetails
-          day={selectedDay.day}
-          month={selectedDay.month}
-          year={selectedDay.year}
-          weather={selectedDay.weather}
-          activity={selectedDay.activity}
-          recommendation={selectedDay.recommendation}
-        />
-      </Box>
+      {/* Detalles del día (solo visible cuando hay selección) */}
+      {selectedDay && (
+        <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
+          <DayWeatherDetails
+            day={selectedDay.day}
+            month={selectedDay.month}
+            year={selectedDay.year}
+            weather={selectedDay.weather}
+            activity={selectedDay.activity}
+            recommendation={selectedDay.recommendation}
+          />
+        </Box>
+      )}
     </Box>
   );
 };
