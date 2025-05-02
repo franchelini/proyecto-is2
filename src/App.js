@@ -20,10 +20,15 @@ const App = () => {
             padding: 0, // Asegura paddings en 0
           }}
         >
+          {/* Barra de navegación */}
           <CustomAppBar />
-          <div style={{ flex: 1 }}>
+
+          {/* Contenido principal */}
+          <div style={{ flex: 1, width: '100%' }}> {/* Asegura que el contenido ocupe el espacio disponible */}
             <AppRoutes />
           </div>
+
+          {/* Footer */}
           <Footer />
         </div>
       </Background>

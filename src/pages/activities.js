@@ -20,6 +20,7 @@ const imagenesActividades = {
 
 const actividadesPredeterminadas = Object.keys(imagenesActividades);
 
+
 const PaginaActividades = () => {
   const [actividadesSeleccionadas, setActividadesSeleccionadas] = useState([]);
   const [actividadesGuardadas, setActividadesGuardadas] = useState([]);
