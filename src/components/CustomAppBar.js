@@ -1,88 +1,107 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { AppBar, Typography, Button, Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const CustomAppBar = () => {
   return (
-    <Box sx={{ flexGrow: 1, height:"100hv" }}>
-      <AppBar position="static" sx={{ backgroundColor: '#4982ef', height: '9rem' }}>
-        <Toolbar
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ backgroundColor: '#4982ef', padding: 0 }}>
+        {/* Sección del título */}
+        <Box
           sx={{
             display: 'flex',
-            flexDirection: 'column',
             alignItems: 'center',
-            gap: '1rem',
+            justifyContent: 'center',
+            backgroundColor: '#3a6fb0', 
+            padding: '1rem', 
+            borderBottom: '2px solid #2c5a8a', 
           }}
         >
-         
-          <Box
+          {/* Imagen */}
+          <img
+            src="clima3.png"
+            alt="Logo"
+            style={{ width: '60px', height: '60px' }}
+          />
+          {/* Texto */}
+          <Typography
+            variant="h6"
             sx={{
-              display: 'flex',
-              alignItems: 'center', 
-              gap: '0.5rem', 
-              alignContent:"space-between"
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '1.8rem',
+              fontWeight: 'bold',
+              color: '#fff', 
+              marginLeft: '1rem', 
             }}
           >
-            {/* Imagen */}
-            <img
-              src="clima3.png" 
-              alt="Logo"
-              style={{ width: '60px', height: '60px', mt: '2rem' }} 
-            />
-            {/* Texto */}
-            <Typography
-              variant="h6"
-              sx={{
-                fontFamily: 'Poppins, sans-serif',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                mt: '1rem',
-              }}
-            >
-              App MyTime
-            </Typography>
-          </Box>
-          {/* Botones */}
-          <Box
+            App MyTime
+          </Typography>
+        </Box>
+
+        {/* Sección de botones */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: '#2c5a8a', 
+            padding: '0.5rem 1rem', 
+            gap: '5rem', 
+          }}
+        >
+          <Button
+            color="inherit"
+            component={Link}
+            to="/"
             sx={{
-              display: 'flex',
-              gap: '10rem',
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              color: '#fff',
             }}
           >
-            <Button
-              color="inherit"
-              component={Link}
-              to="/"
-              sx={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.2rem' }}
-            >
-              Inicio
-            </Button>
-            <Button
-              color="inherit"
-              component={Link}
-              to="/activities"
-              sx={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.2rem' }}
-            >
-              Actividades
-            </Button>
-            <Button
-              color="inherit"
-              component={Link}
-              to="/user"
-              sx={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.2rem' }}
-            >
-              Usuario
-            </Button>
-            <Button
-              color="inherit"
-              component={Link}
-              to="/time"
-              sx={{ fontFamily: 'Poppins, sans-serif', fontSize: '1.2rem' }}
-            >
-              Tiempo
-            </Button>
-          </Box>
-        </Toolbar>
+            REGISTRO
+          </Button>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/activities"
+            sx={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}
+          >
+            ACTIVIDADES
+          </Button>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/user"
+            sx={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}
+          >
+            USUARIO
+          </Button>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/time"
+            sx={{
+              fontFamily: 'Poppins, sans-serif',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              color: '#fff',
+            }}
+          >
+            CALENDARIO SEMANAL
+          </Button>
+        </Box>
       </AppBar>
     </Box>
   );
