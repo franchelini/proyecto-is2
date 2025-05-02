@@ -16,10 +16,15 @@ const App = () => {
             minHeight: '100vh', // Asegura que ocupe toda la altura de la ventana
           }}
         >
+          {/* Barra de navegación */}
           <CustomAppBar />
-          <div style={{ flex: 1 }}>
+
+          {/* Contenido principal */}
+          <div style={{ flex: 1, width: '100%' }}> {/* Asegura que el contenido ocupe el espacio disponible */}
             <AppRoutes />
           </div>
+
+          {/* Footer */}
           <Footer />
         </div>
       </Background>

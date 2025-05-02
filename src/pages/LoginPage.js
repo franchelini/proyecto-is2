@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Button, TextField, Typography, Container, Paper } from "@mui/material";
 
 export default function LoginPage() {
+  const [ubicacion, setUbicacion] = React.useState('');
+
   return (
     <Box
       sx={{
@@ -31,6 +33,14 @@ export default function LoginPage() {
               fullWidth
               margin="normal"
               type="password"
+            />
+            <TextField
+              label="Ubicación"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={ubicacion}
+              onChange={(e) => setUbicacion(e.target.value)}
             />
             <Button
               variant="contained"
