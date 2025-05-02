@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, useTheme, useMediaQuery } from '@mui/material'; // Elimina Typography
+import { Box, useTheme, useMediaQuery } from '@mui/material';
 import HorizontalWeekCalendar from '../components/timeComponents/WeekCalendar';
 import DayWeatherDetails from '../components/timeComponents/DayWeatherDetails';
 
@@ -25,16 +25,16 @@ const TimePage = () => {
         flexDirection: isMobile ? 'column' : 'row', // Diseño responsivo
         gap: 4, // Espaciado entre los componentes
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'stretch', // Asegura que ambos componentes tengan la misma altura
       }}
     >
       {/* Calendario semanal */}
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
         <HorizontalWeekCalendar />
       </Box>
 
       {/* Detalles del clima de un día */}
-      <Box sx={{ flex: 1 }}>
+      <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
         <DayWeatherDetails
           day={selectedDay.day}
           month={selectedDay.month}

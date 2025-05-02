@@ -12,15 +12,15 @@ const DayWeatherDetails = ({ day, month, year, weather, activity, recommendation
         maxWidth: '400px', // Ancho máximo
         margin: '0 auto', // Centrar horizontalmente
         textAlign: 'center', // Centrar el texto
-        mt:"-15rem"
+      
       }}
     >
     <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center', color: "#2c5a8a", fontSize: '2rem', fontWeight:"bold" }}> DETALLES DEL DÍA</Typography>
-      <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2 }}>
+      <Typography variant="h5" sx={{ fontWeight: 'bold', mb: 2, color: '#2c5a8a'}}>
         {day}, {month} {year}
       </Typography>
       <Divider sx={{ mb: 2 }} />
-      <Typography variant="body1" sx={{ mb: 2, fontWeight: 500 }}>
+      <Typography variant="body1" sx={{ mb: 2, fontWeight: 500, color:"black" }}>
         Actividad: {activity}
       </Typography>
       <Chip
@@ -39,10 +39,10 @@ const DayWeatherDetails = ({ day, month, year, weather, activity, recommendation
           color: '#fff',
         }}
       />
-      <Typography variant="body1" sx={{ mb: 2, fontWeight: 600 }}>
+      <Typography variant="body1" sx={{ mb: 2, fontWeight: 600, color:"black" }}>
         Temperatura: {weather.temp}
       </Typography>
-      <Typography variant="body2" sx={{ fontStyle: 'italic', mb: 2 }}>
+      <Typography variant="body2" sx={{ fontStyle: 'italic', mb: 2, color:"black" }}>
         Recomendación: {recommendation}
       </Typography>
     </Box>

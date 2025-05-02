@@ -49,51 +49,78 @@ const HorizontalWeekCalendar = () => {
   };
 
   return (
-    <Box sx={{ 
-      padding: 4,
-      overflowX: 'auto',
-      '&::-webkit-scrollbar': { display: 'none' },
-      mt:"-15rem"
-      
-    }}>
-      <Typography variant="h4" gutterBottom sx={{ mb: 4, textAlign: 'center', color: "#2c5a8a", fontSize: '2rem', fontWeight:"bold" }}>
-        CALENDARIO SEMANAL
-      </Typography>
+    <Box
+      sx={{
+        padding: 4,
+        overflowX: 'auto',
+        '&::-webkit-scrollbar': { display: 'none' },
+        mt:"-2rem"
+      }}
+    >
+      {/* Contenedor del título con fondo transparente */}
+      <Box
+        sx={{
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo blanco semitransparente
+          borderRadius: 2, // Bordes redondeados
+          padding: 2, // Espaciado interno
+          textAlign: 'center', // Centrar el texto
+          boxShadow: 3, // Sombra para darle profundidad
+          mb: 4, // Margen inferior
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            color: '#2c5a8a', // Color del texto
+            fontSize: '2rem',
+            fontWeight: 'bold',
+          }}
+        >
+          CALENDARIO SEMANAL
+        </Typography>
+      </Box>
 
       {/* Contenedor horizontal */}
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: 2, // Espacio uniforme entre cards
-        minHeight: cardDimensions.height,
-        pb: 3
-      }}>
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: 2, // Espacio uniforme entre cards
+          minHeight: cardDimensions.height,
+          pb: 3,
+        }}
+      >
         {weekData.map((day, index) => (
-          <Card key={index} sx={{
-            ...cardDimensions,
-            display: 'flex',
-            flexDirection: 'column',
-            transition: 'all 0.3s ease',
-            '&:hover': {
-              transform: 'translateY(-5px)',
-              boxShadow: theme.shadows[6]
-            }
-          }}>
-            <CardContent sx={{ 
-              flex: 1,
+          <Card
+            key={index}
+            sx={{
+              ...cardDimensions,
               display: 'flex',
               flexDirection: 'column',
-              p: 2,
-              height: '100%'
-            }}>
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-5px)',
+                boxShadow: theme.shadows[6],
+              },
+            }}
+          >
+            <CardContent
+              sx={{
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                p: 2,
+                height: '100%',
+              }}
+            >
               {/* Sección superior: Día */}
               <Box sx={{ textAlign: 'center', mb: 1 }}>
-                <Typography 
-                  variant="h6" 
-                  sx={{ 
+                <Typography
+                  variant="h6"
+                  sx={{
                     fontWeight: 'bold',
                     color: theme.palette.primary.main,
-                    fontSize: '1.1rem'
+                    fontSize: '1.1rem',
                   }}
                 >
                   {day.day}
@@ -102,9 +129,9 @@ const HorizontalWeekCalendar = () => {
               </Box>
 
               {/* Sección media: Actividad */}
-              <Typography 
+              <Typography
                 variant="body1"
-                sx={{ 
+                sx={{
                   textAlign: 'center',
                   mb: 2,
                   fontSize: '1rem',
@@ -112,32 +139,37 @@ const HorizontalWeekCalendar = () => {
                   flexGrow: 1,
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
                 }}
               >
                 {day.activity}
               </Typography>
 
               {/* Sección de recomendación */}
-              <Box sx={{
-                backgroundColor: theme.palette.action.selected,
-                borderRadius: 1,
-                p: 1,
-                mb: 2,
-                textAlign: 'center',
-                minHeight: '60px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Typography 
+              <Box
+                sx={{
+                  backgroundColor: theme.palette.action.selected,
+                  borderRadius: 1,
+                  p: 1,
+                  mb: 2,
+                  textAlign: 'center',
+                  minHeight: '60px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                <Typography
                   variant="body2"
                   sx={{
                     fontWeight: 600,
-                    color: theme.palette.mode === 'dark' ? 
-                      theme.palette.getContrastText(theme.palette.action.selected) : 
-                      theme.palette.text.primary,
-                    fontSize: '0.85rem'
+                    color:
+                      theme.palette.mode === 'dark'
+                        ? theme.palette.getContrastText(
+                            theme.palette.action.selected
+                          )
+                        : theme.palette.text.primary,
+                    fontSize: '0.85rem',
                   }}
                 >
                   {getWeatherRecommendation(day.weather.condition)}
@@ -145,35 +177,40 @@ const HorizontalWeekCalendar = () => {
               </Box>
 
               {/* Sección inferior: Clima y botón */}
-              <Box sx={{ 
-                textAlign: 'center',
-                mt: 'auto'
-              }}>
-                <Chip 
+              <Box
+                sx={{
+                  textAlign: 'center',
+                  mt: 'auto',
+                }}
+              >
+                <Chip
                   label={day.weather.condition}
                   size="small"
-                  sx={{ 
+                  sx={{
                     mb: 1.5,
                     fontSize: '0.75rem',
                     fontWeight: 500,
-                    width: '100%'
+                    width: '100%',
                   }}
                   color={
-                    day.weather.condition === 'Soleado' ? 'warning' :
-                    day.weather.condition === 'Lluvia' ? 'info' : 'default'
+                    day.weather.condition === 'Soleado'
+                      ? 'warning'
+                      : day.weather.condition === 'Lluvia'
+                      ? 'info'
+                      : 'default'
                   }
                 />
                 <Typography variant="body1" sx={{ mb: 2, fontWeight: 600 }}>
                   {day.weather.temp}
                 </Typography>
-                
-                <Button 
-                  variant="outlined" 
+
+                <Button
+                  variant="outlined"
                   size="small"
-                  sx={{ 
+                  sx={{
                     width: '100%',
                     fontSize: '0.75rem',
-                    fontWeight: 500
+                    fontWeight: 500,
                   }}
                 >
                   Detalles
