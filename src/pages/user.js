@@ -1,5 +1,19 @@
 import React, { useState } from "react";
-import { Box, TextField, Button, Typography, Paper, Container } from "@mui/material";
+import {
+  Box,
+  TextField,
+  Button,
+  Typography,
+  Container,
+  InputAdornment,
+  Paper
+} from "@mui/material";
+import {
+  AccountCircle,
+  Email,
+  Lock,
+  LockOutlined
+} from "@mui/icons-material";
 
 const RegistroForm = () => {
   const [nombre, setNombre] = useState("");
@@ -51,63 +65,128 @@ const RegistroForm = () => {
 
     if (isValid) {
       alert("Usuario registrado correctamente");
-      // Aquí puedes agregar lógica para guardar los datos en un backend
     }
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 4 }}>
-      <Paper elevation={3} sx={{ padding: 4, borderRadius: 3 }}>
-        <Typography variant="h5" component="h1" gutterBottom align="center">
-          Registro de Usuario
+    <Container maxWidth="sm" sx={{ mt: 6 }}>
+      <Paper
+        elevation={6}
+        sx={{
+          padding: 4,
+          borderRadius: 4,
+          backdropFilter: "blur(10px)",
+          backgroundColor: "rgba(255, 255, 255, 0.15)",
+          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
+          border: "1px solid rgba(255, 255, 255, 0.2)"
+        }}
+      >
+        <Typography
+          variant="h4"
+          component="h1"
+          gutterBottom
+          align="center"
+          sx={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: "bold",
+            color: "#1976d2",
+            fontSize: "2rem",
+          }}
+          
+        >
+          REGISTRO DE USUARIO
         </Typography>
-        <Box component="form" noValidate onSubmit={handleSubmit} sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+
+        <Box
+          component="form"
+          noValidate
+          onSubmit={handleSubmit}
+          sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}
+        >
           <TextField
             label="Nombre"
-            variant="outlined"
+            variant="filled"
             fullWidth
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
             error={!!nombreError}
             helperText={nombreError}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              )
+            }}
           />
+
           <TextField
             label="Correo Electrónico"
-            variant="outlined"
+            variant="filled"
             fullWidth
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             error={!!emailError}
             helperText={emailError}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Email />
+                </InputAdornment>
+              )
+            }}
           />
+
           <TextField
             label="Contraseña"
-            variant="outlined"
-            fullWidth
             type="password"
+            variant="filled"
+            fullWidth
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             error={!!passwordError}
             helperText={passwordError}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Lock />
+                </InputAdornment>
+              )
+            }}
           />
+
           <TextField
             label="Confirmar Contraseña"
-            variant="outlined"
-            fullWidth
             type="password"
+            variant="filled"
+            fullWidth
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             error={!!confirmPasswordError}
             helperText={confirmPasswordError}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LockOutlined />
+                </InputAdornment>
+              )
+            }}
           />
+
           <Button
             type="submit"
             variant="contained"
             fullWidth
             sx={{
               mt: 2,
-              backgroundColor: "#1976d2",
-              "&:hover": { backgroundColor: "#1565c0" },
+              py: 1.5,
+              fontWeight: "bold",
+              fontSize: "1rem",
+              background: "linear-gradient(to right, #1976d2, #42a5f5)",
+              color: "white",
+              "&:hover": {
+                background: "linear-gradient(to right, #1565c0, #2196f3)"
+              }
             }}
           >
             Registrarse
