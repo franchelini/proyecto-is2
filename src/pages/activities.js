@@ -16,6 +16,10 @@ const imagenesActividades = {
   'Turismo': 'https://st3.depositphotos.com/12332520/19126/i/380/depositphotos_191260114-stock-photo-woman-hiker-mountains-city.jpg',
   'Caminar': 'https://st3.depositphotos.com/9880800/12768/i/380/depositphotos_127688114-stock-photo-family-walking-in-autumn-forest.jpg',
   'Shopping': 'https://st5.depositphotos.com/1635543/77601/i/380/depositphotos_776014828-stock-photo-young-woman-walking-busy-city.jpg',
+  'Pescar': 'pesca',
+  'Ciclismo': 'c',
+  'Futbol': 'futbol',
+  'Fotografia': 'fotografia'
 };
 
 const actividadesPredeterminadas = Object.keys(imagenesActividades);
@@ -105,15 +109,44 @@ const PaginaActividades = () => {
 >
   {/* Lista de selección */}
   <Box
-    sx={{
-      backgroundColor: '#223c6a', // udec_blue
-      padding: 4,
-      borderRadius: 4,
-      maxWidth: '50vh',
-      boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
-      flex: 1
-    }}
-  >
+  sx={{
+    backgroundColor: '#223c6a',
+    padding: 4,
+    borderRadius: 4,
+    maxWidth: '50vh',
+    height: '400px',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    boxShadow: '0px 4px 20px rgba(0, 0, 0, 0.1)',
+    flex: 1,
+
+    // Scrollbar personalizado
+    '&::-webkit-scrollbar': {
+      width: '10px',
+      height: '10px',
+    },
+    '&::-webkit-scrollbar-track': {
+      background: '#223c6a',
+      borderRadius: '10px',
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#10487f',
+      borderRadius: '10px',
+      border: '2px solid #223c6a',
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: '#1976d2',
+    },
+
+    // Scrollbar a la izquierda (solo funciona en navegadores basados en WebKit)
+    'scrollbar-width': 'thin',
+    'scrollbar-color': '#10487f #223c6a',
+    direction: 'rtl', // Truco para mover scrollbar a la izquierda
+    '& *': {
+      direction: 'ltr', // Restaura dirección de texto normal
+    }
+  }}
+>
     <List>
       {actividadesPredeterminadas.map((actividad, index) => {
         const seleccionada = actividadesSeleccionadas.includes(actividad);
@@ -168,15 +201,20 @@ const PaginaActividades = () => {
 
   {/* Cuadro: Actividades guardadas */}
   <Box
-    sx={{
-      backgroundColor: '#ffffff',
-      borderRadius: 4,
-      padding: 3,
-      maxWidth: '50vh',
-      boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
-      flex: 1
-    }}
-  >
+  sx={{
+    backgroundColor: '#ffffff',
+    borderRadius: 4,
+    padding: 3,
+    maxWidth: '50vh',
+    height: '400px', // Altura fija
+    boxShadow: '0 4px 16px rgba(0,0,0,0.15)',
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between'
+  }}
+>
+  <Box sx={{ overflowY: 'auto', flexGrow: 1 }}>
     <Typography variant="h6" gutterBottom sx={{ color: '#223c6a' }}>
       Tus Actividades Guardadas
     </Typography>
@@ -195,15 +233,25 @@ const PaginaActividades = () => {
         ))}
       </List>
     )}
-    <Button
-      variant="outlined"
-      color="#575757"
-      onClick={borrarGuardadas}
-      sx={{ mt: 2, borderRadius: '20px' }}
-    >
-      Borrar Guardadas
-    </Button>
   </Box>
+
+  <Button
+    variant="outlined"
+    onClick={borrarGuardadas}
+    sx={{
+      mt: 2,
+      borderRadius: '20px',
+      color: '#575757',
+      borderColor: '#575757',
+      '&:hover': {
+        borderColor: '#10487f',
+        color: '#10487f'
+      }
+    }}
+  >
+    Borrar Guardadas
+  </Button>
+</Box>
 </Box>
   
 </Box>
