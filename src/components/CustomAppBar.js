@@ -1,8 +1,18 @@
 import React from 'react';
-import { AppBar, Typography, Button, Box } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { AppBar, Typography, Button, Box, IconButton } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import EventIcon from '@mui/icons-material/Event';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const CustomAppBar = () => {
+  const navigate = useNavigate(); // Hook para redirección
+
+  const handleLogout = () => {
+    navigate('/'); // Redirige al login
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: '#4982ef', padding: 0 }}>
@@ -12,9 +22,9 @@ const CustomAppBar = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            backgroundColor: '#3a6fb0', 
-            padding: '1rem', 
-            borderBottom: '2px solid #2c5a8a', 
+            backgroundColor: '#3a6fb0',
+            padding: '1rem',
+            borderBottom: '2px solid #2c5a8a',
           }}
         >
           {/* Imagen */}
@@ -30,8 +40,8 @@ const CustomAppBar = () => {
               fontFamily: 'Poppins, sans-serif',
               fontSize: '1.8rem',
               fontWeight: 'bold',
-              color: '#fff', 
-              marginLeft: '1rem', 
+              color: '#fff',
+              marginLeft: '1rem',
             }}
           >
             App MyTime
@@ -42,17 +52,62 @@ const CustomAppBar = () => {
         <Box
           sx={{
             display: 'flex',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            backgroundColor: '#2c5a8a', 
-            padding: '0.5rem 1rem', 
-            gap: '5rem', 
+            backgroundColor: '#2c5a8a',
+            padding: '0.5rem 1rem',
           }}
         >
-          <Button
+          {/* Botones de navegación */}
+          <Box sx={{ display: 'flex', gap: '2rem' }}>
+            <Button
+              color="inherit"
+              component={Link}
+              to="/user"
+              startIcon={<AccountCircleIcon />}
+              sx={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                color: '#fff',
+              }}
+            >
+              Información Usuario
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to="/activities"
+              startIcon={<EventIcon />}
+              sx={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                color: '#fff',
+              }}
+            >
+              Actividades
+            </Button>
+            <Button
+              color="inherit"
+              component={Link}
+              to="/time"
+              startIcon={<CalendarMonthIcon />}
+              sx={{
+                fontFamily: 'Poppins, sans-serif',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                color: '#fff',
+              }}
+            >
+              Calendario
+            </Button>
+          </Box>
+
+          {/* Botón de salir */}
+          <IconButton
             color="inherit"
-            component={Link}
-            to="/"
+            onClick={handleLogout}
             sx={{
               fontFamily: 'Poppins, sans-serif',
               fontSize: '1.2rem',
@@ -60,47 +115,8 @@ const CustomAppBar = () => {
               color: '#fff',
             }}
           >
-            REGISTRO
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/activities"
-            sx={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              color: '#fff',
-            }}
-          >
-            ACTIVIDADES
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/user"
-            sx={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              color: '#fff',
-            }}
-          >
-            USUARIO
-          </Button>
-          <Button
-            color="inherit"
-            component={Link}
-            to="/time"
-            sx={{
-              fontFamily: 'Poppins, sans-serif',
-              fontSize: '1.2rem',
-              fontWeight: 'bold',
-              color: '#fff',
-            }}
-          >
-            CALENDARIO SEMANAL
-          </Button>
+            <ExitToAppIcon />
+          </IconButton>
         </Box>
       </AppBar>
     </Box>

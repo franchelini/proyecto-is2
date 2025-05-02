@@ -2,16 +2,18 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Activities from '../pages/activities';
 import Time from '../pages/time';
-import User from '../pages/user';
+import UserInfoPage from '../pages/UserInfoPage';
 import LoginPage from '../pages/LoginPage';
+import RegistroForm from '../pages/user'; // Importa la página de registro
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/Activities" element={<Activities />} />
-      <Route path="User" element={<User />} />
-      <Route path="/Time" element={<Time />} />
+      <Route path="/time" element={<Time />} />
+      <Route path="/activities" element={<Activities />} />
+      <Route path="/user" element={<UserInfoPage />} /> {/* Información del usuario */}
+      <Route path="/register" element={<RegistroForm />} /> {/* Registro */}
     </Routes>
   );
 };
