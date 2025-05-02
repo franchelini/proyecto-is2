@@ -131,3 +131,4 @@ model Usuario_Ubicacion {
   usuario   Usuario   @relation(fields: [rut_usuario], references: [rut])
   ubicacion Ubicacion @relation(fields: [id_ubi], references: [id_ubi])
 }
+

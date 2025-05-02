@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Activities from '../pages/activities';
 import Time from '../pages/time';
 import User from '../pages/user';
-import LoginPage from '../pages/loginPage';
+import LoginPage from '../pages/LoginPage';
 
 const AppRoutes = () => {
   return (
