@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { UserContext } from "../pages/UserContext"; // Importa el contexto
 import {
   Box,
   TextField,
@@ -6,28 +7,18 @@ import {
   Typography,
   Paper,
   Container,
-  InputAdornment
+  InputAdornment,
 } from "@mui/material";
-import {
-  AccountCircle,
-  Email,
-  Phone,
-  LocationOn
-} from "@mui/icons-material";
+import { AccountCircle, Email, Phone, LocationOn } from "@mui/icons-material";
 
 const UserInfoPage = () => {
-  const [userData, setUserData] = useState({
-    name: "Juan Pérez",
-    email: "juan.perez@example.com",
-    phone: "+56 9 1234 5678",
-    location: "Concepción, Chile"
-  });
+  const { userData, setUserData } = useContext(UserContext); // Obtén los datos del contexto
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -45,7 +36,7 @@ const UserInfoPage = () => {
           backdropFilter: "blur(10px)",
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
-          border: "1px solid rgba(255, 255, 255, 0.3)"
+          border: "1px solid rgba(255, 255, 255, 0.3)",
         }}
       >
         <Typography
@@ -81,7 +72,7 @@ const UserInfoPage = () => {
                 <InputAdornment position="start">
                   <AccountCircle />
                 </InputAdornment>
-              )
+              ),
             }}
           />
           <TextField
@@ -96,7 +87,7 @@ const UserInfoPage = () => {
                 <InputAdornment position="start">
                   <Email />
                 </InputAdornment>
-              )
+              ),
             }}
           />
           <TextField
@@ -111,7 +102,7 @@ const UserInfoPage = () => {
                 <InputAdornment position="start">
                   <Phone />
                 </InputAdornment>
-              )
+              ),
             }}
           />
           <TextField
@@ -126,7 +117,7 @@ const UserInfoPage = () => {
                 <InputAdornment position="start">
                   <LocationOn />
                 </InputAdornment>
-              )
+              ),
             }}
           />
           <Button
@@ -140,8 +131,8 @@ const UserInfoPage = () => {
               fontSize: "1rem",
               background: "linear-gradient(to right, #1976d2, #42a5f5)",
               "&:hover": {
-                background: "linear-gradient(to right, #1565c0, #2196f3)"
-              }
+                background: "linear-gradient(to right, #1565c0, #2196f3)",
+              },
             }}
           >
             Guardar Cambios

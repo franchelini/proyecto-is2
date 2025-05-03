@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { UserContext } from "../pages/UserContext"; // Importa el contexto
 import {
   Box,
   TextField,
@@ -6,20 +7,22 @@ import {
   Typography,
   Container,
   InputAdornment,
-  Paper
+  Paper,
 } from "@mui/material";
-import {
-  AccountCircle,
-  Email,
-  Lock,
-  LockOutlined
-} from "@mui/icons-material";
+import { AccountCircle, Email, Lock, LockOutlined, Phone, LocationOn } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const RegistroForm = () => {
+  const { setUserData } = useContext(UserContext); // Obtén la función para actualizar el contexto
+  const navigate = useNavigate();
+
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("");
+
   const [nombreError, setNombreError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -64,7 +67,15 @@ const RegistroForm = () => {
     }
 
     if (isValid) {
+      // Guarda los datos en el contexto
+      setUserData({
+        name: nombre,
+        email: email,
+        phone: phone,
+        location: location,
+      });
       alert("Usuario registrado correctamente");
+      navigate("/user"); // Redirige a la página de información del usuario
     }
   };
 
@@ -78,7 +89,7 @@ const RegistroForm = () => {
           backdropFilter: "blur(10px)",
           backgroundColor: "rgba(255, 255, 255, 0.15)",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
-          border: "1px solid rgba(255, 255, 255, 0.2)"
+          border: "1px solid rgba(255, 255, 255, 0.2)",
         }}
       >
         <Typography
@@ -92,7 +103,6 @@ const RegistroForm = () => {
             color: "#1976d2",
             fontSize: "2rem",
           }}
-          
         >
           REGISTRO DE USUARIO
         </Typography>
@@ -116,7 +126,7 @@ const RegistroForm = () => {
                 <InputAdornment position="start">
                   <AccountCircle />
                 </InputAdornment>
-              )
+              ),
             }}
           />
 
@@ -133,7 +143,37 @@ const RegistroForm = () => {
                 <InputAdornment position="start">
                   <Email />
                 </InputAdornment>
-              )
+              ),
+            }}
+          />
+
+          <TextField
+            label="Teléfono"
+            variant="filled"
+            fullWidth
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <Phone />
+                </InputAdornment>
+              ),
+            }}
+          />
+
+          <TextField
+            label="Ubicación"
+            variant="filled"
+            fullWidth
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <LocationOn />
+                </InputAdornment>
+              ),
             }}
           />
 
@@ -151,7 +191,7 @@ const RegistroForm = () => {
                 <InputAdornment position="start">
                   <Lock />
                 </InputAdornment>
-              )
+              ),
             }}
           />
 
@@ -169,7 +209,7 @@ const RegistroForm = () => {
                 <InputAdornment position="start">
                   <LockOutlined />
                 </InputAdornment>
-              )
+              ),
             }}
           />
 
@@ -185,8 +225,8 @@ const RegistroForm = () => {
               background: "linear-gradient(to right, #1976d2, #42a5f5)",
               color: "white",
               "&:hover": {
-                background: "linear-gradient(to right, #1565c0, #2196f3)"
-              }
+                background: "linear-gradient(to right, #1565c0, #2196f3)",
+              },
             }}
           >
             Registrarse
