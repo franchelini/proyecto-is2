@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../pages/UserContext"; // Importa el contexto
 import {
   Box,
@@ -13,6 +13,7 @@ import { AccountCircle, Email, Phone, LocationOn } from "@mui/icons-material";
 
 const UserInfoPage = () => {
   const { userData, setUserData } = useContext(UserContext); // Obtén los datos del contexto
+  const [isEditable, setIsEditable] = useState(false); // Estado para controlar si los campos son editables
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,14 +23,24 @@ const UserInfoPage = () => {
     }));
   };
 
+  const handleEdit = () => {
+    setIsEditable(true); // Permite editar los campos
+  };
+
   const handleSave = () => {
+    setIsEditable(false); // Desactiva la edición
     alert("Datos guardados correctamente");
   };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 8 }}>
+    <Container maxWidth="sm"
+    sx={{
+        display: "flex",
+        justifyContent: "flex-start", // Alinea el contenido a la izquierda
+        alignItems: "flex-start", // Alinea el contenido en la parte superior
+      }}>
       <Paper
-        elevation={6}
+        elevation={2}
         sx={{
           padding: 4,
           borderRadius: 4,
@@ -37,6 +48,7 @@ const UserInfoPage = () => {
           backgroundColor: "rgba(255, 255, 255, 0.1)",
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
           border: "1px solid rgba(255, 255, 255, 0.3)",
+          width: "100%", // Asegúrate de que el Paper ocupe todo el ancho disponible
         }}
       >
         <Typography
@@ -74,6 +86,7 @@ const UserInfoPage = () => {
                 </InputAdornment>
               ),
             }}
+            disabled={!isEditable} // Desactiva el campo si no está en modo edición
           />
           <TextField
             label="Correo Electrónico"
@@ -89,6 +102,7 @@ const UserInfoPage = () => {
                 </InputAdornment>
               ),
             }}
+            disabled={!isEditable} // Desactiva el campo si no está en modo edición
           />
           <TextField
             label="Teléfono"
@@ -104,6 +118,7 @@ const UserInfoPage = () => {
                 </InputAdornment>
               ),
             }}
+            disabled={!isEditable} // Desactiva el campo si no está en modo edición
           />
           <TextField
             label="Ubicación"
@@ -119,24 +134,47 @@ const UserInfoPage = () => {
                 </InputAdornment>
               ),
             }}
+            disabled={!isEditable} // Desactiva el campo si no está en modo edición
           />
-          <Button
-            variant="contained"
-            fullWidth
-            onClick={handleSave}
-            sx={{
-              mt: 2,
-              py: 1.3,
-              fontWeight: "bold",
-              fontSize: "1rem",
-              background: "linear-gradient(to right, #1976d2, #42a5f5)",
-              "&:hover": {
-                background: "linear-gradient(to right, #1565c0, #2196f3)",
-              },
-            }}
-          >
-            Guardar Cambios
-          </Button>
+
+          {/* Botones de Editar y Guardar Cambios */}
+          {!isEditable ? (
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={handleEdit}
+              sx={{
+                mt: 2,
+                py: 1.3,
+                fontWeight: "bold",
+                fontSize: "1rem",
+                background: "linear-gradient(to right, #1976d2, #42a5f5)",
+                "&:hover": {
+                  background: "linear-gradient(to right, #1565c0, #2196f3)",
+                },
+              }}
+            >
+              Editar
+            </Button>
+          ) : (
+            <Button
+              variant="contained"
+              fullWidth
+              onClick={handleSave}
+              sx={{
+                mt: 2,
+                py: 1.3,
+                fontWeight: "bold",
+                fontSize: "1rem",
+                background: "linear-gradient(to right, #1976d2, #42a5f5)",
+                "&:hover": {
+                  background: "linear-gradient(to right, #1565c0, #2196f3)",
+                },
+              }}
+            >
+              Guardar Cambios
+            </Button>
+          )}
         </Box>
       </Paper>
     </Container>

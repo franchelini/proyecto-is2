@@ -47,16 +47,53 @@ const PaginaActividades = () => {
   const borrarGuardadas = () => setActividadesGuardadas([]);
 
   return (
-    <Box sx={{ maxWidth: '1200px', padding: 4 }}>
-      <Typography variant="h4" align="center" gutterBottom sx={{ color: '#223c6a' }}>
+    <Box sx={{}}>
+      <Box
+        sx={{
+          backgroundColor: '#f5f7fb',
+          borderRadius: 4,
+          padding: 4,
+          textAlign: 'center',
+          maxWidth: 700,
+          maxHeight: 100,
+          mx: 'auto',
+          mb: 5,
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+          border: '1px solid #e0e0e0',
+          ml:5,
+          mt:4
+      }}
+      >
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{
+            color: '#223c6a',
+            fontWeight: 700,
+            letterSpacing: 1,
+            mt:-3
+            
+        }}
+      >
         TUS ACTIVIDADES
       </Typography>
 
-      <Typography variant="body1" align="center" paragraph sx={{ color: '#575757' }}>
-        Selecciona las actividades que deseas realizar.
+      <Typography
+        variant="body1"
+        paragraph
+        sx={{
+          color: '#575757',
+          fontSize: '0.9rem',
+          lineHeight: 1.6,
+          mt:-2,
+          textAlign:"justify"
+        }}
+      >
+      Selecciona las actividades de tu preferencia. Puedes elegir varias y guardarlas para futuras recomendaciones
       </Typography>
+    </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap',ml:-136, mt:-3 }}>
         <Button
           variant="contained"
           onClick={borrarSeleccion}
@@ -88,7 +125,7 @@ const PaginaActividades = () => {
         </Button>
       </Box>
 
-      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4, mt: 4, flexWrap: 'wrap' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', gap: 4, mt: 4, flexWrap: 'wrap', ml:-136 }}>
         <Box
           sx={{
             backgroundColor: '#223c6a',
