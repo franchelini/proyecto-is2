@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ThemeProvider } from "@mui/material/styles";
-import { UserProvider } from "./pages/UserContext"; // Importa el UserProvider
+import { UserProvider } from "./context/UserContext";
 import theme from "./theme";
 import App from "./App";
 
