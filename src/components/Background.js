@@ -12,7 +12,7 @@ const Background = ({ children }) => {
         color: '#fff',
       }}
     >
-      {/* Imagen de fondo */}
+      
       <div
         style={{
           position: 'absolute',
@@ -20,7 +20,7 @@ const Background = ({ children }) => {
           left: 0,
           width: '100%',
           height: '100vh',
-          backgroundImage: 'url(/fondo4.jpg)', // Ruta de la imagen
+          backgroundImage: 'url(/fondo4.jpg)',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
@@ -37,7 +37,7 @@ const Background = ({ children }) => {
           left: 0,
           width: '100%',
           height: '100vh',
-          backgroundColor: 'rgba(255, 255, 255, 0.5)', // Blanco con transparencia
+          backgroundColor: 'rgba(255, 255, 255, 0.5)', 
           zIndex: -1,
         }}
       ></div>

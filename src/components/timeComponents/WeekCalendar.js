@@ -45,7 +45,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
   const handleDetailsClick = (dayData) => {
     onDaySelect({
       day: dayData.day,
-      month: 'Mayo', // Puedes hacer esto dinámico
+      month: 'Mayo', 
       year: 2025,
       weather: dayData.weather,
       activity: dayData.activity,
@@ -68,21 +68,21 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
         mt:"-2rem"
       }}
     >
-      {/* Contenedor del título con fondo transparente */}
+   
       <Box
         sx={{
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', // Fondo blanco semitransparente
-          borderRadius: 2, // Bordes redondeados
-          padding: 2, // Espaciado interno
-          textAlign: 'center', // Centrar el texto
-          boxShadow: 3, // Sombra para darle profundidad
-          mb: 4, // Margen inferior
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+          borderRadius: 2, 
+          padding: 2,
+          textAlign: 'center', 
+          boxShadow: 3,
+          mb: 4, 
         }}
       >
         <Typography
           variant="h4"
           sx={{
-            color: '#2c5a8a', // Color del texto
+            color: '#2c5a8a', 
             fontSize: '2rem',
             fontWeight: 'bold',
           }}
@@ -91,12 +91,11 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
         </Typography>
       </Box>
 
-      {/* Contenedor horizontal */}
       <Box
         sx={{
           display: 'flex',
           justifyContent: 'center',
-          gap: 2, // Espacio uniforme entre cards
+          gap: 2,
           minHeight: cardDimensions.height,
           pb: 3,
         }}
@@ -124,7 +123,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
                 height: '100%',
               }}
             >
-              {/* Sección superior: Día */}
+              
               <Box sx={{ textAlign: 'center', mb: 1 }}>
                 <Typography
                   variant="h6"
@@ -139,7 +138,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
                 <Divider sx={{ my: 1.5 }} />
               </Box>
 
-              {/* Sección media: Actividad */}
+              
               <Typography
                 variant="body1"
                 sx={{
@@ -156,7 +155,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
                 {day.activity}
               </Typography>
 
-              {/* Sección de recomendación */}
+              
               <Box
                 sx={{
                   backgroundColor: theme.palette.action.selected,
@@ -187,7 +186,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
                 </Typography>
               </Box>
 
-              {/* Sección inferior: Clima y botón */}
+              
               <Box
                 sx={{
                   textAlign: 'center',
@@ -223,7 +222,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
                     fontSize: '0.75rem',
                     fontWeight: 500,
                 }}
-                onClick={() => handleDetailsClick(day)}  // Se agrega este manejador
+                onClick={() => handleDetailsClick(day)}  
                 >
                   Detalles
               </Button>

@@ -11,7 +11,7 @@ export default function LoginPage() {
   const navigate = useNavigate(); // Hook para redirección
 
   const handleLogin = () => {
-    // Validación básica (puedes agregar lógica más compleja aquí)
+    // Validación básica.
     if (email && password) {
       console.log("Usuario:", email, "Contraseña:", password); // Solo para pruebas
       navigate("/time"); // Redirige a la página principal
@@ -40,12 +40,11 @@ export default function LoginPage() {
             sx={{
               padding: 4,
               borderRadius: 3,
-              backgroundColor: "rgba(255, 255, 255, 0.8)", // Blanco translúcido
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)", // Sombra suave
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)", 
               position: "relative",
             }}
           >
-            {/* Ícono de usuario */}
             <Box
               sx={{
                 position: "absolute",
@@ -90,7 +89,7 @@ export default function LoginPage() {
                   margin="normal"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)} // Actualiza el estado del correo
+                  onChange={(e) => setEmail(e.target.value)} 
                 />
               </Box>
               <Box sx={{ display: "flex", alignItems: "center", gap: 1}}>
@@ -102,7 +101,7 @@ export default function LoginPage() {
                   margin="normal"
                   type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)} // Actualiza el estado de la contraseña
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Box>
               <Button
@@ -117,7 +116,7 @@ export default function LoginPage() {
 
                   
                 }}
-                onClick={handleLogin} // Llama a la función de redirección
+                onClick={handleLogin} 
               >
                 Iniciar Sesión
               </Button>

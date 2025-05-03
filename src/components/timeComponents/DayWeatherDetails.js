@@ -5,13 +5,13 @@ const DayWeatherDetails = ({ day, month, year, weather, activity, recommendation
   return (
     <Box
       sx={{
-        backgroundColor: '#f5f5f5', // Fondo claro
-        borderRadius: 2, // Bordes redondeados
-        padding: 3, // Espaciado interno
-        boxShadow: 3, // Sombra para darle profundidad
-        maxWidth: '400px', // Ancho máximo
-        margin: '0 auto', // Centrar horizontalmente
-        textAlign: 'center', // Centrar el texto
+        backgroundColor: '#f5f5f5', 
+        borderRadius: 2, 
+        padding: 3, 
+        boxShadow: 3, 
+        maxWidth: '400px', 
+        margin: '0 auto', 
+        textAlign: 'center', 
       
       }}
     >

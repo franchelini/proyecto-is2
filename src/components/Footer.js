@@ -5,11 +5,11 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        backgroundColor: '#2c5a8a', // Fondo azul oscuro
-        color: '#fff', // Texto blanco
-        padding: '1rem', // Espaciado interno
-        textAlign: 'center', // Centrar el texto
-        mt: 'auto', // Empuja el footer al final de la página
+        backgroundColor: '#2c5a8a', 
+        color: '#fff',
+        padding: '1rem', 
+        textAlign: 'center',
+        mt: 'auto',
       }}
     >
       <Typography variant="body1" sx={{ fontWeight: 'bold' }}>

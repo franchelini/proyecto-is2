@@ -13,20 +13,20 @@ const TimePage = () => {
       sx={{
         padding: 4,
         display: 'flex',
-        flexDirection: isMobile ? 'column' : 'row', // Diseño responsivo
-        gap: 4, // Espaciado entre los componentes
+        flexDirection: isMobile ? 'column' : 'row', 
+        gap: 4, 
         justifyContent: 'center',
-        alignItems: 'stretch', // Asegura que ambos componentes tengan la misma altura
+        alignItems: 'stretch', 
       }}
     >
-      {/* Calendario semanal (siempre visible) */}
-      <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
+
+      <Box sx={{ flex: 1, minHeight: '400px' }}> 
         <HorizontalWeekCalendar onDaySelect={setSelectedDay} />
       </Box>
 
-      {/* Detalles del día (solo visible cuando hay selección) */}
+    
       {selectedDay && (
-        <Box sx={{ flex: 1, minHeight: '400px' }}> {/* Altura mínima para igualar */}
+        <Box sx={{ flex: 1, minHeight: '400px' }}> 
           <DayWeatherDetails
             day={selectedDay.day}
             month={selectedDay.month}
