@@ -42,6 +42,9 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
     { day: 'DOM', activity: 'Descanso', weather: { condition: 'Soleado', temp: '25°C' } }
   ];
 
+  const País="Chile"
+  const Ciudad="Concepción"
+
   const handleDetailsClick = (dayData) => {
     onDaySelect({
       day: dayData.day,
@@ -87,7 +90,7 @@ const HorizontalWeekCalendar = ({ onDaySelect }) => {
             fontWeight: 'bold',
           }}
         >
-          CALENDARIO SEMANAL
+          CALENDARIO SEMANAL {Ciudad}, {País}
         </Typography>
       </Box>
 
